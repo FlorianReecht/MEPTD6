@@ -52,7 +52,6 @@ La deuxième étape de ce TP
 
 
 
-
 La base de donnée peut être directement crée depuis mogenius.
 En effet, lors de la création d'un nouveau service, il est possible de créer un service de type "postgre".
 
@@ -64,9 +63,9 @@ POSTGRE_PASSWORD. Afin de la garder secrète , il est possible de la crypter à 
 
 La variable POSTGRES_USER permet de configurer le nom d'utilisateur de la base de données. Il est initialisé par défault à posgres_user.
 
-La base de données est accessible à l'addresse suivante : 
-tcp-mo5.mogenius.io:14243
 
+La base de données est accessible à l'addresse suivante : 
+tcp-mo5.mogenius.io sur le port 55448
 
 
 
@@ -84,3 +83,6 @@ Le dockerfile pour conteneuriser l'api est composé des commandes suivante :
 - Le code est ensuite compilé à l'aide de la commande gradle build
 - On repart ensuite d'une image java 
 - Les fichiers compilés précedement sont ensuite copiés dans la nouvelle image.
+ Malheuresment je rencontre une erreur sur l'execution du dockerfile que je n'ai pas eu le temps de corriger. 
+
+ Mais lorsque le Dockerfile sera fonctionel, l'application l'application dans le conteneur fonctionnera grace à la base de données précedement mise sur le serveur distant grace à mogenius.
