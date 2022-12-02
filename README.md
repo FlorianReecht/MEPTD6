@@ -25,8 +25,8 @@ Le but de cette partie est de créer une image docker qui contiendra un serveur 
 Cette image est crée à partir d'un "Dockerfile".
 Le Dockerfile est un fichier qui permet de génerer des images docker à partir d'instructions. 
 
-Les instructions de ce Dockerfile sont très simple :
--La première instruction : "FROM nginx" 
+Les instructions de ce Dockerfile sont les suivantes 
+- La première instruction : "FROM nginx" 
 Permet de récuperer la dernière version de l'image Nginx présente sur le dockerhub.
 - Les deux autres instructions :  
 COPY index.html /usr/share/nginx/html
