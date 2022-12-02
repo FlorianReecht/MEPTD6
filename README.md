@@ -1,4 +1,5 @@
-*TD 6 Mise en production*
+**TD 6 Mise en production**
+============================
 
 1ère étape : déploiment d'un fichier HTML classique
 
