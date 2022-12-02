@@ -1,0 +1,9 @@
+services:
+
+  app:
+  
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: root
