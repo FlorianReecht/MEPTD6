@@ -16,7 +16,8 @@ Cette image est crée à partir d'un "Dockerfile".
 Le Dockerfile est un fichier qui permet de génerer des images docker à partir d'instructions. 
 
 Les instructions de ce Dockerfile sont très simple :
--La première instruction : "FROM nginx" permet de récuperer la dernière version de l'image Nginx présente sur le dockerhub.
+-La première instruction : 
+-"FROM nginx" permet de récuperer la dernière version de l'image Nginx présente sur le dockerhub.
 - Les deux autres instructions :  
 COPY index.html /usr/share/nginx/html
 COPY style.css /usr/share/nginx/html
