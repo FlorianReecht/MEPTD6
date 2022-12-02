@@ -36,13 +36,12 @@ Pour lancer le Dockerfile, il faut se placer dans le dossier courant et lancer l
 Le point permet d'executer le fichier dans le dossier courant.
 La commande génerera l'image docker correspondante.
 
-Une fois l'image génerer , il faut ensuite la lancer dans un conteneur à l'aide de la commande suivante : 
-"docker run [OPTIONS] IMAGE [COMMAND] [ARG...]"
+Une fois l'image génerer , il faut ensuite la lancer dans un conteneur à l'aide de la commande docker run.
 
-Pour lancer le serveur sur le port 80 on lance la commande suivante : docker run -p 80:80 -d nomImage.
+Pour lancer le conteneur et donc le serveur sur le port 80 on lance la commande suivante : docker run -p 80:80 -d nomImage.
 
 Lorsque le conteneur est lancé , il est possible d'observer la page statique à l'adresse suivante : 
-"localhost:80".
+"http://localhost:80".
 
 **Déploiment de la page statique **
 L'étape suivante à été le déploiment de ce conteneur sur un serveur distant à l'aide de la technologie mogenius qui permet de déployer des applications dans le cloud. 
@@ -60,7 +59,7 @@ Conteneur du back end et connexion à la base de données distante
 ------
 
 La base de donnée peut être directement crée depuis mogenius.
-En effet, lors de la création d'un nouveau service, il est possible de créer un service de type "postgre".
+En effet, lors de la création d'un nouveau service,d'un nouveau cloud space, il est possible de créer un service de type "postgre".
 
 Lors de la création, il est nécessaire de configurer certains paramètre du serveur Postgre.
 
@@ -68,6 +67,8 @@ Lors de la création, il est nécessaire de configurer certains paramètre du se
 
 La variable d'environement la plus importante est la variable
 POSTGRE_PASSWORD. Afin de la garder secrète , il est possible de la crypter à l'aide d'un docker secret. 
+La variable d'environnement DB_USERNAME permet de définir l'identifiant de l'utilisateur qui se connecte à la base de données elle est également cryptée.
+
 
 
 La variable d'environement POSTGRES_USER permet de configurer le nom d'utilisateur de la base de données. Il est initialisé par défault à posgres_user.
@@ -76,7 +77,6 @@ la variable d'environement POSTGRE_DB permet de créer une base de données vide
 La base de données est accessible à l'addresse suivante : 
 tcp-mo5.mogenius.io sur le port 55448. 
 
-la variable d'environnement DB_USERNAME permet de définir l'identifiant de l'utilisateur qui se connecte à la base de données.
 
 Dans notre cas , les variables d'environnement et les secrets ont étés définies directement dans mogenius mais il est possible de les définir dans un dockefile ou un docker-compose lors de la création d'une image Postgre.
 
@@ -105,3 +105,4 @@ Le dockerfile pour conteneuriser l'api est composé des commandes suivante :
  Malheuresment je rencontre une erreur sur l'execution du dockerfile que je n'ai pas eu le temps de corriger. 
 
  Mais lorsque le Dockerfile sera fonctionel, l'application l'application dans le conteneur fonctionnera grace à la base de données précedement mise sur le serveur distant grace à mogenius.
+Il est néanmoins possible de d'accéder à la base de données distante depuis l'application en local une fois les paramètres dans le fichier application.yaml ont été modifiés.
