@@ -13,17 +13,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
     private static final Logger log = LoggerFactory.getLogger(SecurityConfig.class);
+    private final YAMLFilters filters  = new YAMLFilters();
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, UserDetailsService userDetailsService) throws Exception {
         http
                 .authorizeHttpRequests((authz) -> authz
-                        .mvcMatchers("/api/public/**").permitAll()
-                        .mvcMatchers("/api/admin/**").authenticated())
+                        .mvcMatchers().denyAll()
+                        .mvcMatchers(filters.getUrl("public")).permitAll()
+                        .mvcMatchers(filters.getUrl("restricted")).authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .cors().disable()
                 .csrf().disable()

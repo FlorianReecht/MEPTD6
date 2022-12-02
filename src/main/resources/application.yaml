@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/covid-db
-    username: test_user
+    url: jdbc:postgresql://tcp-mo4.mogenius.io:54718/covid-db
+    username: test-user
     password: password
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect

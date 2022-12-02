@@ -1,7 +1,7 @@
 databaseChangeLog:
   - preConditions:
       - runningAs:
-          username: test_user
+          username: test-user
   - include:
       labels: creation
       file: db/changelog/covid-db/center/create-center-table.yaml

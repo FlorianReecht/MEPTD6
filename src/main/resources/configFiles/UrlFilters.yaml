@@ -1,0 +1,9 @@
+public :
+  ["/api/public/**"]
+restricted :
+  ["/api/admin/**"]
+bucket_limited :
+  [
+    "/api/admin/patients",
+    "/api/admin/reservations"
+  ]
