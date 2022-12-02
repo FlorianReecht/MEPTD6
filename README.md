@@ -78,3 +78,9 @@ Il est nécessaire de changer l'url de dans le fichier application.yaml
 Le lancement de l'application Spring permettra de créer la base de données sur le serveur distant. 
 
 Il suffit enfin de conteneuriser l'application backend de l'éxecuter et il est possible d'observer l'API.
+Le dockerfile pour conteneuriser l'api est composé des commandes suivante : 
+-On part de la base d'une image gradle
+- On copie le code source java dans le conteneur 
+- Le code est ensuite compilé à l'aide de la commande gradle build
+- On repart ensuite d'une image java 
+- Les fichiers compilés précedement sont ensuite copiés dans la nouvelle image.
