@@ -61,11 +61,13 @@ La variable d'environement la plus importante est la variable
 POSTGRE_PASSWORD. Afin de la garder secrète , il est possible de la crypter à l'aide d'un docker secret. 
 
 
-La variable POSTGRES_USER permet de configurer le nom d'utilisateur de la base de données. Il est initialisé par défault à posgres_user.
+La variable d'environement POSTGRES_USER permet de configurer le nom d'utilisateur de la base de données. Il est initialisé par défault à posgres_user.
 
-
+la variable d'environement POSTGRE_DB permet de créer une base de données vide du nom choisi.
 La base de données est accessible à l'addresse suivante : 
-tcp-mo5.mogenius.io sur le port 55448
+tcp-mo5.mogenius.io sur le port 55448. 
+
+Il est possible de s'y connecter depuis pg admin en entrant le bon nom d'utilisateur le bon mot de passe et la bonne adresse.
 
 
 
@@ -83,6 +85,8 @@ Le dockerfile pour conteneuriser l'api est composé des commandes suivante :
 - Le code est ensuite compilé à l'aide de la commande gradle build
 - On repart ensuite d'une image java 
 - Les fichiers compilés précedement sont ensuite copiés dans la nouvelle image.
+
+
  Malheuresment je rencontre une erreur sur l'execution du dockerfile que je n'ai pas eu le temps de corriger. 
 
  Mais lorsque le Dockerfile sera fonctionel, l'application l'application dans le conteneur fonctionnera grace à la base de données précedement mise sur le serveur distant grace à mogenius.
