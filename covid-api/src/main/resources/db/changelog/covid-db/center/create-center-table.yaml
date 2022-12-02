@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 26-09-2022-01
+      author: David (PC fixe)
+      labels: creation
+      changes:
+        - createTable:
+            tableName: CENTER
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: city
+                  type: VARCHAR(255)
+

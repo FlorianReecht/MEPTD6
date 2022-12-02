@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - preConditions:
+      - runningAs:
+          username: test_user
+  - include:
+      labels: creation
+      file: db/changelog/covid-db/center/create-center-table.yaml
+  - include:
+      labels: creation
+      file: db/changelog/covid-db/patient/create-patient-table.yaml
+  - include:
+      labels: creation
+      file: db/changelog/covid-db/reservation/create-reservation-table.yaml
+
+  - include:
+      labels: foreign-keys
+      file: db/changelog/covid-db/patient/add-reservation-column.yaml
+  - include:
+      labels: foreign-keys
+      file: db/changelog/covid-db/reservation/add-center-column.yaml
+  - include:
+      labels: foreign-keys
+      file: db/changelog/covid-db/reservation/add-client-column.yaml
+
+  - include:
+      labels: import-data
+      file: db/changelog/covid-db/center/import-center-data.yaml
+  - include:
+      labels: import-data
+      file: db/changelog/covid-db/patient/add-test_user-entry.yaml
+
+

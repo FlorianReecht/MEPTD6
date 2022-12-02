@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 30-09-2022-02
+      author: David(PC école)
+      labels: import-data
+      changes:
+        - insert:
+            tableName: PATIENT
+            columns:
+              - column:
+                  name: first_name
+                  value: test
+              - column:
+                  name: last_name
+                  value: user
+              - column:
+                  name: mail
+                  value: test.user@poltechMail.com
+              - column:
+                  name: is_vaccinated
+                  value: "false"

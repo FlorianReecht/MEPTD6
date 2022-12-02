@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 28-09-2022-03
+      author: David(PC école)
+      labels: foreign-keys
+      changes:
+        - addColumn:
+            tableName: RESERVATION
+            columns:
+              - column:
+                  name: center_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_address_center
+                    references: center(id)

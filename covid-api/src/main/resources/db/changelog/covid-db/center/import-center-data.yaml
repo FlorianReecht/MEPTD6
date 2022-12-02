@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      author: David(Pc école)
+      id: 30-09-2022-01
+      labels: import-test-data
+      changes:
+        - loadData:
+            tableName: CENTER
+            file: importFiles/centresVaccination.csv
+            separator: ;
+            columns:
+              - column:
+                  header: nom
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  header: ville
+                  name: city
+                  type: VARCHAR(255)
+
+
+

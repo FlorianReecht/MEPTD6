@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 28-09-2022-04
+      author: David(PC école)
+      labels: foreign-keys
+      changes:
+        - addColumn:
+            tableName: PATIENT
+            columns:
+              - column:
+                  name: reservation_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_address_reservation
+                    references: reservation(id)
+  - changeSet:
+      id: 28-09-2022-05
+      author: David(PC école)
+      changes:
+        - dropColumn:
+            tableName: PATIENT
+            columnName: reservation_id
